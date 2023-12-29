@@ -1,0 +1,72 @@
+{{ define "video" }}
+
+<table class="w-full whitespace-nowrap text-left">
+    <colgroup>
+        <col class="w-full sm:w-4/12" />
+        <col class="lg:w-4/12" />
+        <col class="lg:w-2/12" />
+        <col class="lg:w-1/12" />
+        <col class="lg:w-1/12" />
+    </colgroup>
+    <thead class="border-b border-black/10 text-sm leading-6 text-black">
+        <tr>
+            <th scope="col" class="font-semibold sm:table-cell">Name</th>
+            <th scope="col" class="hidden font-semibold sm:table-cell">
+                Channel ID
+            </th>
+            <th scope="col" class="hidden font-semibold md:table-cell lg:pr-20">
+                Handle
+            </th>
+            <th
+                scope="col"
+                class="hidden text-right font-semibold sm:table-cell"
+            >
+                RSS Feed
+            </th>
+        </tr>
+    </thead>
+    <tbody class="divide-y divide-black/5">
+        <tr>
+            <td class="">
+                <div class="flex items-center gap-x-4">
+                    <img
+                        src="{{ .ThumbnailUrl }}"
+                        alt="{{ .Title}} thumbnail"
+                        class="h-8 w-8 rounded-full bg-gray-800"
+                        width="{{ .ThumbnailWidth }}"
+                    />
+                    <div
+                        class="truncate text-sm font-medium leading-6 text-black"
+                    >
+                        {{ .Title}}
+                    </div>
+                </div>
+            </td>
+            <td class="hidden py-4 pl-0 pr-4 sm:table-cell sm:pr-8">
+                <div class="flex gap-x-3">
+                    <div class="font-mono text-sm leading-6 text-gray-400">
+                        {{ .ChannelID}}
+                    </div>
+                </div>
+            </td>
+            <td class="py-4 pl-0 pr-4 text-sm leading-6 sm:pr-8 lg:pr-20">
+                <div
+                    class="flex items-center justify-end gap-x-2 sm:justify-start"
+                >
+                    <div class="hidden text-black sm:block">{{ .Handle}}</div>
+                </div>
+            </td>
+            <td
+                class="text-right text-sm leading-6 text-gray-400 sm:table-cell"
+            >
+                <button
+                    x-clipboard.raw="https://www.youtube.com/feeds/videos.xml?channel_id={{ .ChannelID}}"
+                >
+                    Copy to Clipboard
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+{{ end }}
