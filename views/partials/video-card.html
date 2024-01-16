@@ -1,0 +1,23 @@
+{{ define "video-card" }}
+<div class="card">
+    <img
+        src="{{ .ThumbnailUrl }}"
+        alt="{{ .Title}} thumbnail"
+        width="{{ .ThumbnailWidth }}"
+        height="{{ .ThumbnailHeight }}"
+        class="no-border"
+    />
+    <div class="card-body border-5">
+        <h4 class="card-title">{{ .Title}}</h4>
+        <h5 class="card-subtitle">{{ .Handle}}</h5>
+        <p class="card-text">{{ .Description}}</p>
+        <button
+            x-clipboard.raw="https://www.youtube.com/feeds/videos.xml?channel_id={{ .ChannelID}}"
+            class="btn-block"
+        >
+            Copy Feed to Clipboard
+        </button>
+    </div>
+</div>
+
+{{ end }}

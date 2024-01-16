@@ -80,7 +80,7 @@ func PostFeed(c *gin.Context) {
 	// set video data in database
 	_ = database.SetVideo(ctx, url.VideoID, data, db)
 	// return channel data
-	c.HTML(http.StatusOK, "video", data)
+	c.HTML(http.StatusOK, "video-card", data)
 }
 
 func PostPlaylist(c *gin.Context) {

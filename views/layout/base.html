@@ -4,25 +4,17 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!-- unocss -->
-        {{ template "unocss" }}
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <!-- paper.css -->
+        {{ template "paper.css" }}
+        <!-- alpine -->
+        {{ template "alpine" }}
         <!-- htmx -->
         {{ template "htmx" }}
-        <!-- alpine.js -->
-        {{ template "alpine.js" }}
         <title>YT-RSS</title>
     </head>
-    <body
-        hx-boost="true"
-        class="pt-8 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 "
-    >
-    <header></header>
-    <main class="mx-auto max-w-5xl flex flex-col justify-between min-h-screen">
-        <!-- nav -->
-        {{ template "app" }}
-        <!-- footer -->
-        {{ template "footer" }}
+    <body hx-boost="true" class="paper container margin-top border border-5">
+        <main>{{ template "app" }}</main>
     </body>
-</main>
 </html>
 {{ end }}

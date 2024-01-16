@@ -17,11 +17,11 @@ func SetChannel(ctx context.Context, ytChannel *youtube.ChannelListResponse, db 
 		Title:       ytChannel.Items[0].Snippet.Title,
 		Description: ytChannel.Items[0].Snippet.Description,
 		ThumbnailUrl: ytChannel.Items[0].Snippet.Thumbnails.
-			Default.Url,
+			High.Url,
 		ThumbnailWidth: fmt.Sprintf("%d", ytChannel.Items[0].Snippet.Thumbnails.
-			Default.Width),
+			High.Width),
 		ThumbnailHeight: fmt.Sprintf("%d", ytChannel.Items[0].Snippet.Thumbnails.
-			Default.Height),
+			High.Height),
 		DateAdded: fmt.Sprintf("%d", now),
 	}
 

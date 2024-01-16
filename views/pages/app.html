@@ -1,36 +1,27 @@
 {{ define "app" }}
-<div class="flex flex-col" x-data="{ activeTab:  0 }">
-    <div class="flex justify-between w-full">
-        <label @click="activeTab = 0">Home</label>
-        <label @click="activeTab = 1">Playlists</label>
-        <label @click="activeTab = 2">Search</label>
+<div>
+    <div class="row flex-center">
+        <h2 style="text-align: center">Youtube RSS Feeds</h2>
     </div>
-    <div x-show="activeTab === 0">
-        <p>Get a feed with a video link</p>
+    <div>
         <form
             hx-post="/video"
             hx-target="next .error"
             hx-on::after-request="if(event.detail.successful) this.reset()"
+            class="form-group sm-8 row flex-center"
         >
-            <label for="video-url"></label>
+            <label for="video-url">Get a RSS feed with a video link</label>
             <input
                 id="video-url"
                 type="url"
                 name="video-url"
                 placeholder="https://www.youtube.com/watch?v=..."
                 required
+                class="input-block"
             />
-            <button type="submit">Find RSS</button>
+            <button type="submit" class="btn-block">Find RSS</button>
         </form>
         <span id="video-results" class="error"></span>
-    </div>
-    <div x-show="activeTab === 1">
-        <p>Generate rss feeds from playlists</p>
-        <input type="url" name="playlist-feeds" id="" />
-    </div>
-    <div x-show="activeTab === 2">
-        <p>Search for found feeds</p>
-        <input type="text" name="search-feeds" id="" />
     </div>
 </div>
 {{ end }}
